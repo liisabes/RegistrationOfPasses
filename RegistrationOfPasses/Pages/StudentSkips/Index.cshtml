@@ -1,0 +1,69 @@
+﻿@page
+@model RegistrationOfPasses.Pages.StudentSkips.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Учёт пропусков</h1>
+
+<p>
+    <a asp-page="Create">Создать новую запись</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].CountHour)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].CnSNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].IdCauseNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].IdEmpFornNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentSkips[0].IdSubjectTeacherNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.StudentSkips)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CountHour)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CnSNavigation.SurName)
+                    @Html.DisplayFor(modelItem => item.CnSNavigation.Name)
+                    @Html.DisplayFor(modelItem => item.CnSNavigation.FatherName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdCauseNavigation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdEmpFornNavigation.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IdSubjectTeacherNavigation.CnG)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.IdStudentSkip">Редактировать</a> |
+                    <a asp-page="./Details" asp-route-id="@item.IdStudentSkip">Подробнее</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.IdStudentSkip">Удалить</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

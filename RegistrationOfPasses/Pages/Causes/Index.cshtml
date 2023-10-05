@@ -1,0 +1,42 @@
+﻿@page
+@model RegistrationOfPasses.Pages.Causes.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cause[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cause[0].SmallName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Cause) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SmallName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdCause">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdCause">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdCause">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

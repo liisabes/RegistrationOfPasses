@@ -1,0 +1,60 @@
+﻿@page
+@model RegistrationOfPasses.Pages.SubjectTeachers.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTeacher[0].ConsultHourCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTeacher[0].AddControlHourCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTeacher[0].CnGNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTeacher[0].CnTNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubjectTeacher[0].IdSubjectNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SubjectTeacher) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ConsultHourCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddControlHourCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CnGNavigation.CnG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CnTNavigation.CnT)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSubjectNavigation.IdSubject)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdSubjectTeacher">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdSubjectTeacher">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdSubjectTeacher">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

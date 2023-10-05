@@ -1,0 +1,60 @@
+﻿@page
+@model RegistrationOfPasses.Pages.StudentSkips.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Удалить</h1>
+
+<h3>Вы уверены, что хотите удалить эту запись?</h3>
+<div>
+    <h4>Учёт пропусков</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.Date)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.Date)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.CountHour)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.CountHour)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.CnSNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.CnSNavigation.SurName)
+            @Html.DisplayFor(model => model.StudentSkip.CnSNavigation.Name)
+            @Html.DisplayFor(model => model.StudentSkip.CnSNavigation.FatherName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.IdCauseNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.IdCauseNavigation.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.IdEmpFornNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.IdEmpFornNavigation.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.StudentSkip.IdSubjectTeacherNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.StudentSkip.IdSubjectTeacherNavigation.CnG)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="StudentSkip.IdStudentSkip" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-page="./Index">Вернуться к списку</a>
+    </form>
+</div>

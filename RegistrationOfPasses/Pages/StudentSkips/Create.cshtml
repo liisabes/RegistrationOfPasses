@@ -1,0 +1,71 @@
+﻿@page
+@model RegistrationOfPasses.Pages.StudentSkips.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>StudentSkip</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.CnS" class="control-label"></label>
+                <select asp-for="StudentSkip.CnS" class ="form-control" 
+                        asp-items="@Model.CnSSL">
+                    <option value="">ФИО учащегося</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.IdCause" class="control-label"></label>
+                <select asp-for="StudentSkip.IdCause" class ="form-control" 
+                        asp-items="@Model.IdCauseSL">
+                    <option value="">Причина пропуска</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.Date" class="control-label"></label>
+                <input asp-for="StudentSkip.Date" class="form-control" />
+                <span asp-validation-for="StudentSkip.Date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.CountHour" class="control-label"></label>
+                <input asp-for="StudentSkip.CountHour" class="form-control" />
+                <span asp-validation-for="StudentSkip.CountHour" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.IdEmpForn" class="control-label"></label>
+                <select asp-for="StudentSkip.IdEmpForn" class ="form-control" 
+                        asp-items="@Model.IdEmpForn_NameSL">
+                    <option value="">Вид пропущенного занятия</option>
+                </select>
+            <span asp-validation-for="StudentSkip.IdEmpForn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StudentSkip.IdSubjectTeacher" class="control-label"></label>
+                <select asp-for="StudentSkip.IdSubjectTeacher" class ="form-control" 
+                        asp-items="@Model.IdSubjectTeacher_CnGSL">
+                        <option value="">Группа</option>
+                </select>
+                <span asp-validation-for="StudentSkip.IdSubjectTeacher" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p></p>
+                <input type="submit" value="Создать" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <p></p>
+    <a asp-page="Index">Вернуться к списку</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

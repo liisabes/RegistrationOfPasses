@@ -1,0 +1,52 @@
+﻿@page
+@model RegistrationOfPasses.Pages.SubjectTeachers.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SubjectTeacher</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.ConsultHourCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.ConsultHourCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.AddControlHourCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.AddControlHourCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.CnGNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.CnGNavigation.CnG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.CnTNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.CnTNavigation.CnT)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.IdSubjectNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.IdSubjectNavigation.IdSubject)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SubjectTeacher.IdSubjectTeacher" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

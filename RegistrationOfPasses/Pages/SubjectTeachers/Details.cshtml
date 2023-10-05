@@ -1,0 +1,49 @@
+﻿@page
+@model RegistrationOfPasses.Pages.SubjectTeachers.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SubjectTeacher</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.ConsultHourCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.ConsultHourCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.AddControlHourCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.AddControlHourCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.CnGNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.CnGNavigation.CnG)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.CnTNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.CnTNavigation.CnT)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubjectTeacher.IdSubjectNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubjectTeacher.IdSubjectNavigation.IdSubject)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.SubjectTeacher?.IdSubjectTeacher">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
